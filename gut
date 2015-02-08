@@ -1,0 +1,14 @@
+#bin/bash
+
+case $1 in
+  init) class=GutInit ;;
+  add) class=GutAdd ;;
+  commit) class=GutCommit ;;
+  log) class=GutLog ;;
+  checkout) class=GutCheckout ;;
+  *) echo "Q(o_o)--O)\`_')>" ;;
+esac
+
+if [ -n "$class" ]; then
+  scala -cp $GUT_HOME/gut.jar de.frosner.gut.$class $2
+fi
